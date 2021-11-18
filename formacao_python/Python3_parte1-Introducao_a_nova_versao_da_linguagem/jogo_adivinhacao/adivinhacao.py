@@ -1,8 +1,10 @@
+import random
+
 print("*********************************")
 print("Bem vindo no jogo de adivinhação!")
 print("*********************************")
 
-numero_secreto = 42
+numero_secreto = random.randrange(1,101)  #Gera um número aleatório entre 1 e 100
 total_de_tentativas = 3
 rodada = 1
 
