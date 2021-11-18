@@ -1,50 +1,49 @@
 import random
 
-print("*********************************")
-print("Bem vindo no jogo de adivinhação!")
-print("*********************************")
+print("*****************************")
+print("Welcome to the guessing game!")
+print("*****************************")
 
-numero_secreto = random.randrange(1,101)  #Gera um número aleatório entre 1 e 100
-total_de_tentativas = 0
-pontos = 1000
+secret_number = random.randrange(1,101)  #Generates a random number between 1 and 100
+total_trials = 0
+score = 1000
 
-print("Qual nível de dificuldade?")
-print("(1) Fácil (2) Médio (3) Difícil")
+print("What difficulty level do you wish?")
+print("(1) Easy (2) Medium (3) Hard")
 
-nivel = int(input("Defina o nível: "))
+level = int(input("Type the dificult level: "))
 
-if nivel == 1:
-    total_de_tentativas = 20
-elif nivel == 2:
-    total_de_tentativas = 10
+if level == 1:
+    total_trials = 20
+elif level == 2:
+    total_trials = 10
 else:
-    total_de_tentativas = 5
+    total_trials = 5
 
-for rodada in range(1, total_de_tentativas+1):
+for round in range(1, total_trials+1):
 
-    print("Tentativa {} de {}".format(rodada, total_de_tentativas))
+    print("Trial {} of {}".format(round, total_trials))
 
-    chute = input("Digite um número entre 1 e 100: ")
-    chute = int(chute)
+    trial_value = int(input("Type a number between 1 and 100: "))
 
-    if(chute < 1 or chute > 100):
-        print("Você deve digitar um número entre 1 e 100!")
+    if(trial_value < 1 or trial_value > 100):
+        print("You must type a number between 1 and 100!")
         continue
 
-    print("Você digitou ", chute)
+    print("You typed ", trial_value)
 
-    acertou = chute == numero_secreto
-    maior = chute > numero_secreto
-    menor = chute < numero_secreto
+    right = trial_value == secret_number
+    higher = trial_value > secret_number
+    less = trial_value < secret_number
 
-    if chute == numero_secreto:
-        print(f"você acertou e fez {pontos} pontos")
+    if right:
+        print(f"You got it right! Your score is {score} ")
         break
-    elif maior:
-        print("você errou. O seu chute foi maior que o número secreto!")
-    elif menor:
-        print("Você errou. O seu chute foi menor que o número secreto!")
-    pontos_perdidos = abs(numero_secreto - chute)
-    pontos = pontos - pontos_perdidos
+    elif higher:
+        print("You missed. The value of your bet is higher than the secret number!")
+    elif less:
+        print("You missed. The value of your bet is less than the secret number!")
+    lost_score = abs(secret_number - trial_value)
+    score = score - lost_score
 
-print("Fim do jogo")
+print("Game Over")
