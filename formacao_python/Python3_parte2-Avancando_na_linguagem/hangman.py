@@ -9,6 +9,15 @@ def play():
     got_right = False
 
     while(not hanged and not got_right):
+
+        trial = input("Type a letter: ")
+
+        index = 0
+        for letter in secret_word:
+            if trial == letter:
+                print("The letter {} was found at index {}.".format(letter, index))
+            index = index + 1
+
         print('hangman')
 
     print('Game over')
