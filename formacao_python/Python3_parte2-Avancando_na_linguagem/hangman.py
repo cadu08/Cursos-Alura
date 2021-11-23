@@ -10,11 +10,11 @@ def play():
 
     while(not hanged and not got_right):
 
-        trial = input("Type a letter: ")
+        trial = input("Type a letter: ").strip() #remove all blank spaces
 
         index = 0
         for letter in secret_word:
-            if trial == letter:
+            if trial.upper() == letter.upper():
                 print("The letter {} was found at index {}.".format(letter, index))
             index = index + 1
 
