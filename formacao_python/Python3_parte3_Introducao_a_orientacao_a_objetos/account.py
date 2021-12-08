@@ -14,3 +14,7 @@ class Account:
 
     def withdraw(self, value):
         self.__balance -= value
+
+    def transfer(self, value, destination):
+        self.withdraw(value)
+        destination.deposit(value)
