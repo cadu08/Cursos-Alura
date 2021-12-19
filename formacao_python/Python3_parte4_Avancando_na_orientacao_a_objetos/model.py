@@ -1,54 +1,45 @@
-class Movie:
+class Media:
+
+    def __init__(self, name, year):
+        self._name = name.title()
+        self._year = year
+        self._likes = 0
+
+    @property
+    def likes(self):
+        return self._likes
+
+    def add_like(self):
+        self._likes += 1
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name.title()
+
+
+class Movie(Media):
 
     def __init__(self, name, year, duration):
-        self.__name = name.title()
-        self.year = year
+        super().__init__(name, year)
         self.duration = duration
-        self.__likes = 0
 
-    @property
-    def likes(self):
-        return self.__likes
 
-    def add_like(self):
-        self.__likes += 1
-
-    @property
-    def name(self):
-        return self.__name
-
-    @name.setter
-    def name(self, new_name):
-        self.__name = new_name.title()
-
-class Serie:
+class Serie(Media):
 
     def __init__(self, name, year, seasons):
-        self.__name = name.title()
-        self.year = year
+        super().__init__(name, year)
         self.seasons = seasons
-        self.__likes = 0
 
-    @property
-    def likes(self):
-        return self.__likes
-
-    def add_like(self):
-        self.__likes += 1
-
-    @property
-    def name(self):
-        return self.__name
-
-    @name.setter
-    def name(self, new_name):
-        self.__name = new_name.title()
 
 avengers = Movie('avengers - infinity war', 2018, 160)
-print(f'Name: {avengers.name} - Year: {avengers.year} - Duration: {avengers.duration} - Likes: {avengers.likes}')
+print(f'Name: {avengers.name} - Likes: {avengers.likes}')
 
 theWitcher = Serie('the witcher', 2019, 2)
 
 theWitcher.add_like()
 
-print(f'Name: {theWitcher.name} - Year: {theWitcher.year} - Seasons: {theWitcher.seasons} - Likes: {theWitcher.likes}')
+print(f'Name: {theWitcher.name} - Likes: {theWitcher.likes}')
