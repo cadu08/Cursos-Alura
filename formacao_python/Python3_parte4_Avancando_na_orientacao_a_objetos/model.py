@@ -20,6 +20,9 @@ class Media:
     def name(self, new_name):
         self._name = new_name.title()
 
+    def __str__(self):
+        return f'Name: {self.name} Likes: {self.likes}'
+
 
 class Movie(Media):
 
@@ -27,8 +30,8 @@ class Movie(Media):
         super().__init__(name, year)
         self.duration = duration
 
-    def print_media(self):
-        print(f'Name: {self.name} - Duration: {self.duration} min - Likes: {self.likes}')
+    def __str__(self):
+        return f'Name: {self.name} - Duration: {self.duration} min - Likes: {self.likes}'
 
 
 class Serie(Media):
@@ -37,8 +40,8 @@ class Serie(Media):
         super().__init__(name, year)
         self.seasons = seasons
 
-    def print_media(self):
-        print(f'Name: {self.name} - Seasons: {self.seasons} - Likes: {self.likes}')
+    def __str__(self):
+        return f'Name: {self.name} - Seasons: {self.seasons} - Likes: {self.likes}'
 
 
 avengers = Movie('avengers - infinity war', 2018, 160)
@@ -48,4 +51,4 @@ theWitcher.add_like()
 list = [avengers, theWitcher]
 
 for media in list:
-    media.print_media()
+    print(media)
