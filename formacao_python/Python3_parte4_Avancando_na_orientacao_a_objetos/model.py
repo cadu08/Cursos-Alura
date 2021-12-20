@@ -27,6 +27,9 @@ class Movie(Media):
         super().__init__(name, year)
         self.duration = duration
 
+    def print_media(self):
+        print(f'Name: {self.name} - Duration: {self.duration} min - Likes: {self.likes}')
+
 
 class Serie(Media):
 
@@ -34,12 +37,15 @@ class Serie(Media):
         super().__init__(name, year)
         self.seasons = seasons
 
+    def print_media(self):
+        print(f'Name: {self.name} - Seasons: {self.seasons} - Likes: {self.likes}')
+
 
 avengers = Movie('avengers - infinity war', 2018, 160)
-print(f'Name: {avengers.name} - Likes: {avengers.likes}')
-
 theWitcher = Serie('the witcher', 2019, 2)
-
 theWitcher.add_like()
 
-print(f'Name: {theWitcher.name} - Likes: {theWitcher.likes}')
+list = [avengers, theWitcher]
+
+for media in list:
+    media.print_media()
