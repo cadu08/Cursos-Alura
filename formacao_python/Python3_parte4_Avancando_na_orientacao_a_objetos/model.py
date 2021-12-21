@@ -44,11 +44,60 @@ class Serie(Media):
         return f'Name: {self.name} - Seasons: {self.seasons} - Likes: {self.likes}'
 
 
+class Playlist():
+
+    def __init__(self, name, medias):
+        self.name = name
+        self._medias = medias
+
+    def __getitem__(self, item):
+        return self._medias[item]
+
+    def __len__(self):
+        return len(self._medias)
+
+
 avengers = Movie('avengers - infinity war', 2018, 160)
-theWitcher = Serie('the witcher', 2019, 2)
-theWitcher.add_like()
+lalaland = Movie('La La Land', 2016, 168)
+shawshank = Movie('the shawshank redemption', 1994, 182)
+shape_water = Movie('the shape of water', 2017, 163)
+moonlight = Movie('moonlight', 2016, 110)
+the_artist = Movie('the artist', 1927, 100)
 
-list = [avengers, theWitcher]
+the_witcher = Serie('the witcher', 2019, 2)
+the_untamed = Serie('the untamed', 2019, 1)
+my_country = Serie('my country: the new age', 2019, 1)
+xena = Serie('xena: warrior princess', 1995, 6)
+chris = Serie('everybody hates chris', 2005, 4)
+the_crown = Serie('the crown', 2016, 4)
+sense8 = Serie('sense8', 2015, 2)
+dark = Serie('dark', 2017, 3)
+stranger_things = Serie('stranger things', 2016, 3)
 
-for media in list:
+the_untamed.add_like()
+the_untamed.add_like()
+the_untamed.add_like()
+the_untamed.add_like()
+the_untamed.add_like()
+the_untamed.add_like()
+
+moonlight.add_like()
+moonlight.add_like()
+moonlight.add_like()
+moonlight.add_like()
+moonlight.add_like()
+
+xena.add_like()
+xena.add_like()
+xena.add_like()
+
+the_witcher.add_like()
+the_witcher.add_like()
+
+medias_list = [avengers, the_witcher, the_untamed, xena]
+weekend_playlist = Playlist('Weekend', medias_list)
+
+print(f'Playlist length: {len(weekend_playlist)}')
+
+for media in weekend_playlist:
     print(media)
